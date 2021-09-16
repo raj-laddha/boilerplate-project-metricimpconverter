@@ -25,6 +25,7 @@ function ConvertHandler() {
       return 'invalid number';
     }
 
+    result = parseFloat(result.toFixed(5));
     return result;
   };
   
@@ -46,13 +47,17 @@ function ConvertHandler() {
       result = 'invalid unit';
     }
 
+    if (result === 'l') {
+      result = 'L';
+    }
+
     return result;
   };
   
   this.getReturnUnit = function(initUnit) {
     const UnitsDict = {
       'gal': 'L',
-      'l': 'gal',
+      'L': 'gal',
       'mi': 'km',
       'km': 'mi',
       'lbs': 'kg',
@@ -67,7 +72,7 @@ function ConvertHandler() {
   this.spellOutUnit = function(unit) {
     const NameDict = {
       'gal': 'gallons',
-      'l': 'liters',
+      'L': 'liters',
       'mi': 'miles',
       'km': 'kilometers',
       'lbs': 'pounds',
@@ -82,14 +87,14 @@ function ConvertHandler() {
   this.convert = function(initNum, initUnit) {
     const CovnertRatios = {
       'gal': 3.78541,
-      'l': 0.264172,
+      'L': 0.264172,
       'mi': 1.60934,
-      'km': 0.621371,
+      'km': 0.62137274,
       'lbs': 0.453592,
-      'kg': 2.20462
+      'kg': 2.20462442
     };
     
-    let result = (initNum * CovnertRatios[initUnit]).toFixed(5);
+    let result = parseFloat((initNum * CovnertRatios[initUnit]).toFixed(5));
 
     return result;
   };

@@ -23,8 +23,8 @@ suite('Unit Tests', function(){
     });
 
     test('read a fractional input with decimal', () => {
-        let input = '1.23/0.2lbs';
-        assert.equal(convertHandler.getNum(input), 1.23/0.2, 'expected to be equal to 1.23/0.2');
+        let input = '1/0.2lbs';
+        assert.equal(convertHandler.getNum(input), 1/0.2, 'expected to be equal to 1.23/0.2');
     });
 
     test('return an error on double fraction', () => {
@@ -57,7 +57,7 @@ suite('Unit Tests', function(){
 
         test('read l', () => {
             input = '1/23l';
-            assert.equal(convertHandler.getUnit(input), 'l', 'expected ' + convertHandler.getUnit(input) + ' to be l');
+            assert.equal(convertHandler.getUnit(input), 'L', 'expected ' + convertHandler.getUnit(input) + ' to be L');
         });
 
         test('read lbs', () => {
@@ -103,8 +103,8 @@ suite('Unit Tests', function(){
             assert.equal(convertHandler.getReturnUnit(input), 'L', 'expected ' + convertHandler.getReturnUnit(input) + ' to be L');
         });
 
-        test('read l', () => {
-            input = 'l';
+        test('read L', () => {
+            input = 'L';
             assert.equal(convertHandler.getReturnUnit(input), 'gal', 'expected ' + convertHandler.getReturnUnit(input) + ' to be gal');
         });
 
@@ -137,8 +137,8 @@ suite('Unit Tests', function(){
             assert.equal(convertHandler.spellOutUnit(input), 'gallons', 'expected ' + convertHandler.spellOutUnit(input) + ' to be gallons');
         });
 
-        test('read l', () => {
-            input = 'l';
+        test('read L', () => {
+            input = 'L';
             assert.equal(convertHandler.spellOutUnit(input), 'liters', 'expected ' + convertHandler.spellOutUnit(input) + ' to be liters');
         });
 
@@ -166,8 +166,8 @@ suite('Unit Tests', function(){
             assert.equal(convertHandler.convert(1, 'gal'), 3.78541, 'expected ' + convertHandler.convert(1, 'gal') + ' to be 3.78541');
         });
 
-        test('convert l', () => {
-            assert.equal(convertHandler.convert(1, 'l'), 0.26417, 'expected ' + convertHandler.convert(1, 'l') + ' to be 0.264172');
+        test('convert L', () => {
+            assert.equal(convertHandler.convert(1, 'L'), 0.26417, 'expected ' + convertHandler.convert(1, 'L') + ' to be 0.264172');
         });
 
         test('convert lbs', () => {
